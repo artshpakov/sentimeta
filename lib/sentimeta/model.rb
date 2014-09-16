@@ -9,7 +9,7 @@ module Sentimeta
     protected
 
     def self.fetch options={}
-      Sentimeta::Client.fetch(@endpoint, options)[@endpoint.to_s]
+      Sentimeta::Client.fetch @endpoint, options
     end
 
   end
