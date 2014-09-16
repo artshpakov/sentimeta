@@ -15,6 +15,7 @@ module Sentimeta
 
       uri = URI.parse url
       uri.query = URI.encode_www_form(p: options.to_json)
+      p uri
 
       begin
         JSON.parse(uri.open.read)

@@ -4,6 +4,7 @@ module Sentimeta
 
   require "sentimeta/version"
   require "sentimeta/client"
+  require "sentimeta/model"
   require "sentimeta/error/unreachable"
 
 end
