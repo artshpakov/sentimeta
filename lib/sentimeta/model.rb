@@ -1,6 +1,14 @@
 module Sentimeta
   class Model
 
+    def initialize params = {}
+      (params || {}).each do |key, value|
+        method = "#{key}="
+        public_send(method, value) if respond_to?(method)
+      end
+    end
+
+
     def self.endpoint endpoint
       @endpoint = endpoint
     end
@@ -9,7 +17,12 @@ module Sentimeta
     protected
 
     def self.fetch options={}
-      Sentimeta::Client.fetch @endpoint, options
+      response = Sentimeta::Client.fetch @endpoint, options
+      if response.kind_of? Array
+        response.map { |entry| new entry }
+      elsif response.kind_of? Hash
+        new response
+      end
     end
 
   end
