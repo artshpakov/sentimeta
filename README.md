@@ -1,10 +1,10 @@
-# Sentimeta::Rails
+# Sentimeta
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'sentimeta-rails'
+    gem 'sentimeta'
 
 And then execute:
 
@@ -12,4 +12,4 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install sentimeta-rails
+    $ gem install sentimeta
