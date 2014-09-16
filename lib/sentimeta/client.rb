@@ -8,13 +8,13 @@ module Sentimeta
     def self.fetch url, options={}
       url = [].tap do |components|
         components << Sentimeta::API_ENDPOINT
-        components << options.delete(:sphere)
+        components << Sentimeta::Sphere.current || options.delete(:sphere)
         components << url
         components << options.delete(:id)
       end.compact.join('/')
 
       uri = URI.parse url
-      uri.query = URI.encode_www_form(p: options.to_json)
+      uri.query = URI.encode_www_form(p: options.reverse_merge(lang: Sentimeta.lang).to_json)
       p uri
 
       begin

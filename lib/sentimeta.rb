@@ -7,4 +7,22 @@ module Sentimeta
   require "sentimeta/model"
   require "sentimeta/error/unreachable"
 
+  class << self
+    def lang= lang
+      @lang = lang
+    end
+
+    def lang
+      @lang
+    end
+
+    def sphere= sphere
+      @sphere = sphere
+    end
+
+    def sphere
+      @sphere
+    end
+  end
+
 end
