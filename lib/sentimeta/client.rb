@@ -22,7 +22,8 @@ module Sentimeta
 
         uri = URI.parse url
         uri.query = URI.encode_www_form(p: options.reverse_merge(lang: Sentimeta.lang).to_json)
-        p uri
+        Sentimeta.logger.debug "  Sentimeta: #{ URI.unescape uri.to_s }"
+
 
         begin
           JSON.parse(uri.open.read)[endpoint.to_s]

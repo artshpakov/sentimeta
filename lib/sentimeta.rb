@@ -5,6 +5,8 @@ module Sentimeta
   require "sentimeta/model"
   require "sentimeta/error/unreachable"
 
+  require 'logger'
+
   class << self
     attr_accessor :env, :sphere
     attr_writer :endpoint, :lang
@@ -22,6 +24,10 @@ module Sentimeta
         self.lang = I18n.locale
       end
       @lang || :en
+    end
+
+    def logger
+      @logger ||= Logger.new STDOUT
     end
   end
 
