@@ -1,0 +1,5 @@
+production:
+  url: 'http://148.251.160.76/api/v1'
+
+staging:
+  url: 'http://5.9.141.34/api/v1'

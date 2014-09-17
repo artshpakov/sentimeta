@@ -1,28 +1,23 @@
 module Sentimeta
 
-  API_ENDPOINT = 'http://148.251.160.76/api/v1'
-
   require "sentimeta/version"
   require "sentimeta/client"
   require "sentimeta/model"
   require "sentimeta/error/unreachable"
 
   class << self
-    def lang= lang
-      @lang = lang
-    end
+    attr_accessor :env, :lang, :sphere
+    attr_writer :endpoint
 
-    def lang
-      @lang
-    end
-
-    def sphere= sphere
-      @sphere = sphere
-    end
-
-    def sphere
-      @sphere
+    def endpoint
+      @endpoint ||= begin
+        config_path = File.join(File.dirname(File.expand_path(__FILE__)), '../config/endpoint.yml')
+        config = YAML.load_file(config_path)[env.to_s].symbolize_keys
+        config[:url]
+      end
     end
   end
+
+  self.env = :production
 
 end

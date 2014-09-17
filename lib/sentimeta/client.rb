@@ -14,7 +14,7 @@ module Sentimeta
 
       def fetch endpoint, options={}
         url = [].tap do |components|
-          components << Sentimeta::API_ENDPOINT
+          components << Sentimeta.endpoint
           components << (Sentimeta.sphere || options.delete(:sphere)) if endpoint != :spheres
           components << endpoint
           components << options.delete(:id)
