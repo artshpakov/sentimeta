@@ -1,5 +1,5 @@
 production:
-  url: 'http://toprater.com/api/v1'
+  url: 'https://api.toprater.com/api/v1'
 
 staging:
-  url: 'http://toprater.com/api/v1'
+  url: 'http://5.9.141.34/api/v1'
