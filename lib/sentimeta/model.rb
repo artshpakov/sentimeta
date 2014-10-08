@@ -17,7 +17,7 @@ module Sentimeta
     protected
 
     def self.fetch options={}
-      response = Sentimeta::Client.fetch @endpoint, options
+      response = Sentimeta::Client.public_send @endpoint, options
       if response.kind_of? Array
         response.map { |entry| new entry }
       elsif response.kind_of? Hash

@@ -6,16 +6,16 @@ module Sentimeta
   module Client
 
     class << self
-      %i(criteria spheres objects).each do |endpoint|
+      %i(criteria spheres objects catalog).each do |endpoint|
         define_method endpoint do |options={}|
-          fetch(endpoint, options)
+          fetch(endpoint, options)[endpoint.to_s]
         end
       end
 
       def fetch endpoint, options={}
         url = [].tap do |components|
           components << Sentimeta.endpoint
-          components << (Sentimeta.sphere || options.delete(:sphere)) if endpoint != :spheres
+          components << (options.delete(:sphere) || Sentimeta.sphere) if endpoint != :spheres
           components << endpoint
           components << options.delete(:id)
         end.compact.join('/')
@@ -26,7 +26,7 @@ module Sentimeta
 
 
         begin
-          JSON.parse(uri.open.read)[endpoint.to_s]
+          JSON.parse(uri.open.read)
         rescue
           raise Sentimeta::Error::Unreachable
         end

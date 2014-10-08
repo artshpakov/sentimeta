@@ -16,10 +16,10 @@ And then execute:
 Sentimeta.env   = :staging # :production is default
 Sentimeta.lang  = :en # default is I18n.locale if defined
     
-# client can be used directly (fetch criteria, spheres & objects)
+# client can be used directly (fetch criteria, spheres, catalog & objects)
 spheres = Sentimeta::Client.spheres
 Sentimeta.sphere = spheres.first['name'] # pick a specific sphere
-    
+
 # or via subclassing Sentimeta::Model
 class Criterion < Sentimeta::Model
   endpoint :criteria # send requests to /api/v1/#{Sentimeta.sphere}/criteria
@@ -37,4 +37,7 @@ class Criterion < Sentimeta::Model
 end
     
 criteria = Criterion.leafs # an array of Criterion class instances
+
+# to fetch raw data
+presets = Sentimeta::Client.fetch 'infotext' {design: "std", param: "main", lang: "en"}
 ```
