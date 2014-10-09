@@ -14,8 +14,8 @@ module Sentimeta
     def endpoint
       @endpoint ||= begin
         config_path = File.join(File.dirname(File.expand_path(__FILE__)), '../config/endpoint.yml')
-        config = YAML.load_file(config_path)[env.to_s].symbolize_keys
-        config[:url]
+        config = YAML.load_file(config_path)[env.to_s]
+        config['url']
       end
     end
 
