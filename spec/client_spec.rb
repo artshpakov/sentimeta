@@ -5,6 +5,12 @@ describe Sentimeta::Client do
   subject { Sentimeta::Client }
 
   let(:valid_url) { subject.generate_uri(:spheres) }
+  before do
+    # subject.stubs(:fetch).with(:spheres).returns(spheres: [])
+    # %i(criteria spheres objects catalog).each do |endpoint|
+    #   subject.stubs(:fetch).with(endpoint, optionally({})).returns(endpoint => [])
+    # end
+  end
 
   
   describe :fetch do
@@ -25,7 +31,7 @@ describe Sentimeta::Client do
     end
 
     it "should raise an error for invalid uri" do
-      expect { subject.send_request "blah" }.to raise_error Sentimeta::Error::Unreachable
+      expect { subject.send_request "invalid" }.to raise_error Sentimeta::Error::Unreachable
     end
   end
 
@@ -42,6 +48,7 @@ describe Sentimeta::Client do
       # end
 
       it "##{endpoint} should return an array" do
+        subject.stubs(:fetch).with(endpoint, optionally({})).returns(endpoint => [])
         expect(subject.public_send endpoint).to be_kind_of Array
       end
     end
