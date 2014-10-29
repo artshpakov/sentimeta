@@ -39,5 +39,5 @@ end
 criteria = Criterion.leafs # an array of Criterion class instances
 
 # to fetch raw data
-presets = Sentimeta::Client.fetch subcriteria: true 'infotext' {design: "std", param: "main", lang: "en"}
+presets = Sentimeta::Client.fetch :infotext, {subcriteria: true, design: "std", param: "main", lang: "en"}
 ```
