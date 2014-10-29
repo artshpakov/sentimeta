@@ -5,14 +5,8 @@ describe Sentimeta::Client do
   subject { Sentimeta::Client }
 
   let(:valid_url) { subject.generate_uri(:spheres) }
-  before do
-    # subject.stubs(:fetch).with(:spheres).returns(spheres: [])
-    # %i(criteria spheres objects catalog).each do |endpoint|
-    #   subject.stubs(:fetch).with(endpoint, optionally({})).returns(endpoint => [])
-    # end
-  end
 
-  
+
   describe :fetch do
     it { should respond_to :fetch }
   end
@@ -40,15 +34,12 @@ describe Sentimeta::Client do
     %i(criteria spheres objects catalog).each do |endpoint|
       it { should respond_to endpoint }
 
-      # it "##{endpoint} should call fetch once" do
-      #   expect(subject).to(receive :fetch).once
-      #   # subject.should_receive(:fetch).once
-      #   # p subject.generate_uri(endpoint, p: { subcriteria: true }).to_s
-      #   subject.public_send endpoint
-      # end
+      it "##{endpoint} should call fetch once" do
+        expect(subject).to receive(:fetch).and_call_original.once
+        subject.public_send endpoint
+      end
 
       it "##{endpoint} should return an array" do
-        subject.stubs(:fetch).with(endpoint, optionally({})).returns(endpoint => [])
         expect(subject.public_send endpoint).to be_kind_of Array
       end
     end
