@@ -32,12 +32,16 @@ module Sentimeta
       end
 
       def send_request uri
-        # Sentimeta.logger.debug "  Sentimeta: #{ URI.unescape uri.to_s }"
+        logger.debug "  Sentimeta: #{ URI.unescape uri.to_s }"
         begin
           JSON.parse(uri.open.read)
         rescue
           raise Sentimeta::Error::Unreachable
         end
+      end
+
+      def logger
+        @logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       end
     end
 
