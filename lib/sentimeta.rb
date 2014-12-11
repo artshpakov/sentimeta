@@ -6,6 +6,7 @@ module Sentimeta
   require "sentimeta/error/unreachable"
 
   require 'logger'
+  require 'yaml'
 
   class << self
     attr_accessor :env, :sphere
