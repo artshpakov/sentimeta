@@ -13,6 +13,7 @@ module Sentimeta
       end
 
       def fetch endpoint, options={}
+        options = options.keep_if { |key, value| !!value }
         send_request generate_uri endpoint, options
       end
 
