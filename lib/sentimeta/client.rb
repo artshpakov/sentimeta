@@ -33,6 +33,7 @@ module Sentimeta
 
       def send_request uri
         logger.debug "  Sentimeta: #{ URI.unescape uri.to_s }"
+        Observers.all.each { |o| o.notify "fetch", URI.unescape(uri.to_s) }
         begin
           JSON.parse(uri.open.read)
         rescue
