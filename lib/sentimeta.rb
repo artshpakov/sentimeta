@@ -4,6 +4,7 @@ module Sentimeta
   require "sentimeta/client"
   require "sentimeta/observers"
   require "sentimeta/model"
+  require "sentimeta/logger"
   require "sentimeta/error/unreachable"
 
   require 'logger'

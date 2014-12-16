@@ -43,6 +43,10 @@ describe Sentimeta::Client do
         expect(subject.public_send endpoint).to be_kind_of Array
       end
     end
+
+    it { should respond_to :prices }
+    it("#prices should call fetch once") { pending }
+    it("#prices should return an array") { pending }
   end
 
 end

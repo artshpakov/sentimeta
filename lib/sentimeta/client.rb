@@ -12,6 +12,10 @@ module Sentimeta
         end
       end
 
+      def prices options={}
+        fetch :prices, options
+      end
+
       def fetch endpoint, options={}
         options = options.keep_if { |key, value| !!value }
         send_request generate_uri endpoint, options
@@ -22,7 +26,8 @@ module Sentimeta
           components << Sentimeta.endpoint
           components << (options.delete(:sphere) || Sentimeta.sphere) unless endpoint == :spheres
           components << endpoint
-          components << options.delete(:id)
+          components << options.delete(:provider) if endpoint == :prices
+          components << options.delete(:id) if endpoint == :objects
         end.compact.join('/')
 
         uri = URI.parse url
