@@ -27,7 +27,7 @@ module Sentimeta
           components << (options.delete(:sphere) || Sentimeta.sphere) unless endpoint == :spheres
           components << endpoint
           components << options.delete(:provider) if endpoint == :prices
-          components << options.delete(:id) if endpoint == :objects
+          components << options.delete(:id)
         end.compact.join('/')
 
         uri = URI.parse url
