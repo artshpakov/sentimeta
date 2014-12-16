@@ -32,7 +32,7 @@ module Sentimeta
       end
 
       def send_request uri
-        logger.debug "  Sentimeta: #{ URI.unescape uri.to_s }"
+        Sentimeta.logger.debug "  Sentimeta: #{ URI.unescape uri.to_s }"
         Observers.all.each { |o| o.notify "fetch", URI.unescape(uri.to_s) }
         begin
           JSON.parse(uri.open.read)
@@ -41,9 +41,6 @@ module Sentimeta
         end
       end
 
-      def logger
-        @logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
-      end
     end
 
   end
