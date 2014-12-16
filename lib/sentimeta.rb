@@ -6,6 +6,7 @@ module Sentimeta
   require "sentimeta/model"
   require "sentimeta/logger"
   require "sentimeta/error/unreachable"
+  require "sentimeta/error/record_not_found"
 
   require 'logger'
   require 'yaml'
