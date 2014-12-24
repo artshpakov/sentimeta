@@ -12,6 +12,10 @@ module Sentimeta
         end
       end
 
+      def attributes options={}
+        fetch(:attributes, options)['values']
+      end
+
       def prices options={}
         fetch :prices, options
       end
@@ -26,6 +30,7 @@ module Sentimeta
           components << Sentimeta.endpoint
           components << (options.delete(:sphere) || Sentimeta.sphere) unless endpoint == :spheres
           components << endpoint
+          components << options.delete(:filter) if endpoint == :attributes
           components << options.delete(:provider) if endpoint == :prices
           components << options.delete(:id)
         end.compact.join('/')
