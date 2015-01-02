@@ -30,6 +30,12 @@ module Sentimeta
       @lang || :en
     end
 
+    def init options
+      options.each do |option, value|
+        public_send("#{ option }=", value) if respond_to?("#{ option }=")
+      end
+    end
+
     def logger
       @logger ||= Logger.new STDOUT
     end
