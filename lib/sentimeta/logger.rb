@@ -1,3 +1,6 @@
+require 'logger'
+
+
 module Sentimeta
 
   def logger
