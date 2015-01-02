@@ -1,5 +1,7 @@
 module Sentimeta
 
+  DEFAULT_ENV = :production
+
   require "sentimeta/version"
   require "sentimeta/client"
   require "sentimeta/observers"
@@ -7,6 +9,8 @@ module Sentimeta
   require "sentimeta/logger"
   require "sentimeta/error/unreachable"
   require "sentimeta/error/record_not_found"
+
+  require "sentimeta/railtie" if defined? Rails
 
   require 'logger'
   require 'yaml'
@@ -41,6 +45,6 @@ module Sentimeta
     end
   end
 
-  self.env = :production
+  self.env = DEFAULT_ENV
 
 end
