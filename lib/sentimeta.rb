@@ -1,4 +1,5 @@
 require "colorize"
+require "rest_client"
 
 require "sentimeta/version"
 require "sentimeta/client"
@@ -9,5 +10,6 @@ require "sentimeta/error/unreachable"
 require "sentimeta/error/record_not_found"
 
 require "sentimeta/railtie" if defined? Rails
+require "sentimeta/mixins" unless defined? ActiveSupport
 
 require "sentimeta/init"

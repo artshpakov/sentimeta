@@ -1,4 +1,3 @@
-require 'open-uri'
 require 'json'
 
 
@@ -17,40 +16,39 @@ module Sentimeta
       end
 
       def prices options={}
-        fetch :prices, options
+        get :prices, options
       end
 
-      def fetch endpoint, options={}
+      def get endpoint, options={}
         options = options.keep_if { |key, value| !!value }
-        send_request generate_uri endpoint, options
+        begin
+          uri = generate_uri endpoint, options
+          Sentimeta.logger.debug "  #{ 'Sentimeta:'.green } #{ uri }"
+          Observers.each { |observer| observer.notify "fetch", URI.unescape(uri.to_s) }
+          JSON.parse RestClient.get URI.escape(uri), accept: :json
+        rescue
+          raise Sentimeta::Error::Unreachable
+        end
       end
+      alias_method :fetch, :get
+
+      def post endpoint, options={}
+        # response = RestClient.post url, options, 'X-SERVER-ACCESS-TOKEN' => Sentimeta.token
+      end
+
+
+      private
 
       def generate_uri endpoint, options={}
-        url = [].tap do |components|
+        [].tap do |components|
           components << Sentimeta.endpoint
           components << (options.delete(:sphere) || Sentimeta.sphere) unless endpoint == :spheres
           components << endpoint
           components << options.delete(:filter) if endpoint == :attributes
           components << options.delete(:provider) if endpoint == :prices
           components << options.delete(:id)
-        end.compact.join('/')
-
-        uri = URI.parse url
-        # uri.query = URI.encode_www_form(p: options.reverse_merge(lang: Sentimeta.lang).to_json)
-        uri.query = URI.encode_www_form(p: options.merge(lang: Sentimeta.lang).to_json)
-        uri
+        end.compact.join('/') + ("?p=#{ options.to_json }" if options.any?)
       end
-
-      def send_request uri
-        Sentimeta.logger.debug "  #{ 'Sentimeta:'.colorize(:green) } #{ URI.unescape uri.to_s }"
-        Observers.each { |observer| observer.notify "fetch", URI.unescape(uri.to_s) }
-        begin
-          JSON.parse(uri.open.read)
-        rescue
-          raise Sentimeta::Error::Unreachable
-        end
-      end
-
     end
 
   end
