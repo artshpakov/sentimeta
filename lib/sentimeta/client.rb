@@ -42,7 +42,7 @@ module Sentimeta
       end
 
       def send_request uri
-        Sentimeta.logger.debug "  #{ 'Sentimeta:'.green } #{ URI.unescape uri.to_s }"
+        Sentimeta.logger.debug "  #{ 'Sentimeta:'.colorize(:green) } #{ URI.unescape uri.to_s }"
         Observers.each { |observer| observer.notify "fetch", URI.unescape(uri.to_s) }
         begin
           JSON.parse(uri.open.read)

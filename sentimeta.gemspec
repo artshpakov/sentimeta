@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.license          = "MIT"
   s.files            = `git ls-files`.split("\n")
 
-  s.add_runtime_dependency "bundler", "~> 1.5"
+  s.add_runtime_dependency "colorize", "~> 0.7"
 
   s.add_development_dependency "rake", "~> 10.4"
   s.add_development_dependency "rspec", "~> 3.1"
