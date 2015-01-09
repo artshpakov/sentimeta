@@ -1,6 +1,3 @@
-require "colorize"
-require "rest_client"
-
 require "sentimeta/version"
 require "sentimeta/client"
 require "sentimeta/observers"

@@ -1,23 +1,19 @@
 require 'json'
+require "colorize"
+require "rest_client"
+
+require_relative 'client/basic'
+require_relative 'client/prices'
 
 
 module Sentimeta
   module Client
 
+    extend Basic
+    extend Prices
+
+
     class << self
-      %i(criteria spheres objects catalog).each do |endpoint|
-        define_method endpoint do |options={}|
-          Sentimeta::Client.fetch(endpoint, options)[endpoint.to_s]
-        end
-      end
-
-      def attributes options={}
-        fetch(:attributes, options)['values']
-      end
-
-      def prices options={}
-        get :prices, options
-      end
 
       def get endpoint, options={}
         options = options.keep_if { |key, value| !!value }
@@ -44,8 +40,8 @@ module Sentimeta
           components << Sentimeta.endpoint
           components << (options.delete(:sphere) || Sentimeta.sphere) unless endpoint == :spheres
           components << endpoint
-          components << options.delete(:filter) if endpoint == :attributes
-          components << options.delete(:provider) if endpoint == :prices
+          components << options.delete(:filter) if endpoint == :attributes  # TODO remove
+          components << options.delete(:provider) if endpoint == :prices    # TODO remove
           components << options.delete(:id)
         end.compact.join('/') + ("?p=#{ options.to_json }" if options.any?)
       end
