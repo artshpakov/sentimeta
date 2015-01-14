@@ -1,5 +1,6 @@
 require "sentimeta/version"
 require "sentimeta/client"
+require "sentimeta/client/auth"
 require "sentimeta/observers"
 require "sentimeta/model"
 require "sentimeta/logger"

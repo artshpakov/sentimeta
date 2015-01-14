@@ -1,12 +1,23 @@
-module Sentimeta
-  module Client
-    module Auth
+module Sentimeta::Client::Auth
+  extend Sentimeta::Client
 
-      def user token
-        Sentimeta.sphere = :auth
-        Sentimeta::Client.get(:users, id: token)
-      end
+  class << self
 
+    def namespace
+      :auth
     end
+
+    def user token
+      get :users, id: token
+    end
+
+    def signup attrs
+      post :users, user: attrs
+    end
+
+    def signin attrs
+      post :sessions, user: attrs
+    end
+
   end
 end
