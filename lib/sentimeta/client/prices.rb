@@ -1,11 +1,12 @@
-module Sentimeta
-  module Client
-    module Prices
+module Sentimeta::Client::Prices
+  extend self
+  extend Sentimeta::RestClient
 
-      def prices options={}
-        get :prices, options
-      end
+  def namespace
+    :prices
+  end
 
-    end
+  def method_missing method, *args
+    get method, *args
   end
 end

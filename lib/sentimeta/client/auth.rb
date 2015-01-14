@@ -1,23 +1,20 @@
 module Sentimeta::Client::Auth
-  extend Sentimeta::Client
+  extend self
+  extend Sentimeta::RestClient
 
-  class << self
+  def namespace
+    :auth
+  end
 
-    def namespace
-      :auth
-    end
+  def user token
+    get :users, id: token
+  end
 
-    def user token
-      get :users, id: token
-    end
+  def signup attrs
+    post :users, user: attrs
+  end
 
-    def signup attrs
-      post :users, user: attrs
-    end
-
-    def signin attrs
-      post :sessions, user: attrs
-    end
-
+  def signin attrs
+    post :sessions, user: attrs
   end
 end
