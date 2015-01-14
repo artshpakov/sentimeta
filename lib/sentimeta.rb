@@ -6,6 +6,10 @@ require "sentimeta/logger"
 require "sentimeta/error/unreachable"
 require "sentimeta/error/record_not_found"
 
+module Sentimeta
+  DEFAULT_ENV = :production
+end
+
 require "sentimeta/railtie" if defined? Rails
 require "sentimeta/mixins" unless defined? ActiveSupport
 

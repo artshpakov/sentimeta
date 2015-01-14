@@ -2,11 +2,8 @@ require 'yaml'
 
 
 module Sentimeta
-
-  DEFAULT_ENV = :production
-
   class << self
-    
+
     attr_accessor :env, :sphere
     attr_writer :endpoint, :lang
 
