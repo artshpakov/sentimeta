@@ -44,8 +44,8 @@ module Sentimeta
       rescue ::RestClient::Exception => e
         Sentimeta.logger.error "  #{ 'Sentimeta:'.colorize :red } #{ e.message } / #{ e.response }"
         return ApiResponse.new e.response
-      rescue
-        raise Unreachable.new e.message, ApiResponse.new(e.response)
+      rescue Exception => e
+        raise Sentimeta::Error::Unreachable.new e.message
       end
       ApiResponse.new response
     end
