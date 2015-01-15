@@ -14,8 +14,11 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "colorize", "~> 0.7"
   s.add_runtime_dependency "rest-client", "~> 1.7"
+  s.add_runtime_dependency "activesupport", "~> 4.1"
 
   s.add_development_dependency "rake", "~> 10.4"
   s.add_development_dependency "rspec", "~> 3.1"
-  s.add_development_dependency "fakeweb", "~> 1.3"
+  s.add_development_dependency "webmock", "~> 1.20"
+  s.add_development_dependency "vcr", "~> 2.9.3"
+
 end

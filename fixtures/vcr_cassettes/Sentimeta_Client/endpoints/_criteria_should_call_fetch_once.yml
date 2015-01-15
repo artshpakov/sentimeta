@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://5.9.0.5/api/v1/hotels/criteria
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      X-Server-Access-Token:
+      - c916b1e13b30764b39d47475e1cef4ee
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.1
+      Date:
+      - Thu, 15 Jan 2015 15:56:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '995'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - HEAD, POST, OPTIONS, GET
+      Access-Control-Max-Age:
+      - '21600'
+      Access-Control-Allow-Headers:
+      - accept, x-requested-with, x-csrf-token
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "build": "0.1.0",
+          "criteria": [
+            {
+              "label": "Beach",
+              "name": "beach"
+            },
+            {
+              "label": "Entertainment",
+              "name": "entertainment"
+            },
+            {
+              "label": "Food And Drinks",
+              "name": "food-and-drinks"
+            },
+            {
+              "label": "Health And Beauty",
+              "name": "health-and-beauty"
+            },
+            {
+              "label": "Hotel",
+              "name": "hotel"
+            },
+            {
+              "label": "Outdoors",
+              "name": "outdoors"
+            },
+            {
+              "label": "Pool",
+              "name": "pool"
+            },
+            {
+              "label": "Rooms",
+              "name": "rooms"
+            },
+            {
+              "label": "Service",
+              "name": "service"
+            },
+            {
+              "label": "Sports Activities",
+              "name": "sports-activities"
+            },
+            {
+              "label": "Surroundings",
+              "name": "surroundings"
+            },
+            {
+              "label": "Transport",
+              "name": "transport"
+            },
+            {
+              "label": "Travel With Kids",
+              "name": "travel-with-kids"
+            }
+          ],
+          "lang": "en",
+          "sphere": "hotels",
+          "ver": 1
+        }
+    http_version: 
+  recorded_at: Thu, 15 Jan 2015 15:56:58 GMT
+recorded_with: VCR 2.9.3

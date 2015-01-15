@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://5.9.0.5/api/v1/hotels/catalog
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      X-Server-Access-Token:
+      - c916b1e13b30764b39d47475e1cef4ee
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.1
+      Date:
+      - Thu, 15 Jan 2015 15:56:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2111'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - HEAD, POST, OPTIONS, GET
+      Access-Control-Max-Age:
+      - '21600'
+      Access-Control-Allow-Headers:
+      - accept, x-requested-with, x-csrf-token
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "build": "0.1.0",
+          "catalog": [
+            {
+              "label": "United States",
+              "name": "united-states"
+            },
+            {
+              "label": "United Kingdom",
+              "name": "united-kingdom"
+            },
+            {
+              "label": "Spain",
+              "name": "spain"
+            },
+            {
+              "label": "Italy",
+              "name": "italy"
+            },
+            {
+              "label": "Canada",
+              "name": "canada"
+            },
+            {
+              "label": "Mexico",
+              "name": "mexico"
+            },
+            {
+              "label": "France",
+              "name": "france"
+            },
+            {
+              "label": "Australia",
+              "name": "australia"
+            },
+            {
+              "label": "Thailand",
+              "name": "thailand"
+            },
+            {
+              "label": "India",
+              "name": "india"
+            },
+            {
+              "label": "Ireland",
+              "name": "ireland"
+            },
+            {
+              "label": "Greece",
+              "name": "greece"
+            },
+            {
+              "label": "Turkey",
+              "name": "turkey"
+            },
+            {
+              "label": "Germany",
+              "name": "germany"
+            },
+            {
+              "label": "Dominican Republic",
+              "name": "dominican-republic"
+            },
+            {
+              "label": "Indonesia",
+              "name": "indonesia"
+            },
+            {
+              "label": "Cuba",
+              "name": "cuba"
+            },
+            {
+              "label": "Egypt",
+              "name": "egypt"
+            },
+            {
+              "label": "Jamaica",
+              "name": "jamaica"
+            },
+            {
+              "label": "Austria",
+              "name": "austria"
+            },
+            {
+              "label": "Portugal",
+              "name": "portugal"
+            },
+            {
+              "label": "China",
+              "name": "china"
+            },
+            {
+              "label": "New Zealand",
+              "name": "new-zealand"
+            },
+            {
+              "label": "Vietnam",
+              "name": "vietnam"
+            },
+            {
+              "label": "Malaysia",
+              "name": "malaysia"
+            },
+            {
+              "label": "Czech Republic",
+              "name": "czech-republic"
+            },
+            {
+              "label": "South Africa",
+              "name": "south-africa"
+            },
+            {
+              "label": "Netherlands",
+              "name": "netherlands"
+            },
+            {
+              "label": "United Arab Emirates",
+              "name": "united-arab-emirates"
+            },
+            {
+              "label": "Switzerland",
+              "name": "switzerland"
+            }
+          ],
+          "lang": "en",
+          "path": [],
+          "sphere": "hotels",
+          "total": 206,
+          "ver": 1
+        }
+    http_version: 
+  recorded_at: Thu, 15 Jan 2015 15:57:00 GMT
+recorded_with: VCR 2.9.3

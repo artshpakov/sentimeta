@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Sentimeta::Client do
+describe Sentimeta::Client, :vcr do
 
   subject { Sentimeta::Client }
 
@@ -13,21 +13,21 @@ describe Sentimeta::Client do
 
 
   describe :generate_uri do
-    it "should return an instance of URI" do
-      expect(valid_url).to be_kind_of URI
+    it "should return an instance of String" do
+      expect(valid_url).to be_kind_of String
     end
   end
 
 
-  describe :send_request do
-    it "should be fine for a valid uri" do
-      expect { subject.send_request valid_url }.not_to raise_error
-    end
+  # describe :send_request do
+  #   it "should be fine for a valid uri" do
+  #     expect { subject.send_request valid_url }.not_to raise_error
+  #   end
 
-    it "should raise an error for invalid uri" do
-      expect { subject.send_request "invalid" }.to raise_error Sentimeta::Error::Unreachable
-    end
-  end
+  #   it "should raise an error for invalid uri" do
+  #     expect { subject.send_request "invalid" }.to raise_error Sentimeta::Error::Unreachable
+  #   end
+  # end
 
 
   describe :endpoints do
@@ -44,9 +44,9 @@ describe Sentimeta::Client do
       end
     end
 
-    it { should respond_to :prices }
-    it("#prices should call fetch once") { pending }
-    it("#prices should return an array") { pending }
+    # it { should respond_to :prices }
+    # it("#prices should call fetch once") { pending }
+    # it("#prices should return an array") { pending }
   end
 
 end

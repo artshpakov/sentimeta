@@ -1,0 +1,292 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://5.9.0.5/api/v1/spheres
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      X-Server-Access-Token:
+      - c916b1e13b30764b39d47475e1cef4ee
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.1
+      Date:
+      - Thu, 15 Jan 2015 15:56:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '5273'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - HEAD, POST, OPTIONS, GET
+      Access-Control-Max-Age:
+      - '21600'
+      Access-Control-Allow-Headers:
+      - accept, x-requested-with, x-csrf-token
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "build": "0.1.0",
+          "lang": "en",
+          "spheres": [
+            {
+              "label": "Restaurants",
+              "name": "restaurants"
+            },
+            {
+              "label": "People (large)",
+              "name": "peoplelarge"
+            },
+            {
+              "label": "Hotels",
+              "name": "hotels"
+            },
+            {
+              "label": "Companies",
+              "name": "companies"
+            },
+            {
+              "label": "Youtube",
+              "name": "videos"
+            },
+            {
+              "label": "Movies",
+              "name": "movies"
+            },
+            {
+              "label": "People",
+              "name": "people"
+            },
+            {
+              "label": "Recipes",
+              "name": "recipes"
+            },
+            {
+              "label": "Cars",
+              "name": "cars"
+            },
+            {
+              "label": "Games",
+              "name": "games"
+            },
+            {
+              "categories": [
+                {
+                  "label": "Computers & Technology Books",
+                  "name": "books-computer"
+                },
+                {
+                  "label": "Travel Books",
+                  "name": "books-travel"
+                },
+                {
+                  "label": "Health, Fitness & Dieting Books",
+                  "name": "books-health"
+                },
+                {
+                  "label": "Science & Math Books",
+                  "name": "books-science"
+                },
+                {
+                  "label": "Sports & Outdoors Books",
+                  "name": "books-sport"
+                },
+                {
+                  "label": "Medical Books",
+                  "name": "books-medical"
+                },
+                {
+                  "label": "Parenting & Relationships Books",
+                  "name": "books-parenting"
+                },
+                {
+                  "label": "Engineering & Transportation Books",
+                  "name": "books-engineering"
+                },
+                {
+                  "label": "Arts & Photography Books",
+                  "name": "books-arts"
+                },
+                {
+                  "label": "Law Books",
+                  "name": "books-law"
+                },
+                {
+                  "label": "Politics & Social Sciences Books",
+                  "name": "books-politics"
+                },
+                {
+                  "label": "Reference Books",
+                  "name": "books-reference"
+                },
+                {
+                  "label": "Business & Money Books",
+                  "name": "books-business"
+                },
+                {
+                  "label": "Self-Help Books",
+                  "name": "books-help"
+                }
+              ],
+              "issphere": false,
+              "label": "Books",
+              "name": "books"
+            },
+            {
+              "categories": [
+                {
+                  "label": "Boys Fashion",
+                  "name": "clothing-boy"
+                },
+                {
+                  "label": "Women's Fashion",
+                  "name": "clothing-women"
+                },
+                {
+                  "label": "Men's Fashion",
+                  "name": "clothing-men"
+                }
+              ],
+              "issphere": false,
+              "label": "Clothing",
+              "name": "clothing"
+            },
+            {
+              "categories": [
+                {
+                  "label": "Baby Clothing & Shoes",
+                  "name": "kidsgoods-babyclothing"
+                },
+                {
+                  "label": "Baby Products",
+                  "name": "kidsgoods-babyproducts"
+                }
+              ],
+              "issphere": false,
+              "label": "Kids Goods",
+              "name": "kidsgoods"
+            },
+            {
+              "categories": [
+                {
+                  "label": "Security & Surveillance",
+                  "name": "electronics-security"
+                },
+                {
+                  "label": "Video Game Consoles & Accessories",
+                  "name": "electronics-game"
+                },
+                {
+                  "label": "GPS Navigation",
+                  "name": "electronics-gps"
+                },
+                {
+                  "label": "TV & Video",
+                  "name": "electronics-tv"
+                },
+                {
+                  "label": "MP3 Players",
+                  "name": "electronics-mp3"
+                },
+                {
+                  "label": "Home Audio & Theater",
+                  "name": "electronics-audio"
+                },
+                {
+                  "label": "Camera & Photo",
+                  "name": "electronics-photo"
+                },
+                {
+                  "label": "Cell Phones",
+                  "name": "electronics-cell"
+                },
+                {
+                  "label": "Phone Cases",
+                  "name": "electronics-phonecase"
+                },
+                {
+                  "label": "Phone Accessories",
+                  "name": "electronics-phoneacc"
+                }
+              ],
+              "issphere": false,
+              "label": "Electronics",
+              "name": "electronics"
+            },
+            {
+              "categories": [
+                {
+                  "label": "Scanners",
+                  "name": "computers-scanner"
+                },
+                {
+                  "label": "Touch Screen Tablet Accessories",
+                  "name": "computers-tabletacc"
+                },
+                {
+                  "label": "External Computer Components",
+                  "name": "computers-external"
+                },
+                {
+                  "label": "Video Projectors",
+                  "name": "computers-projector"
+                },
+                {
+                  "label": "PDAs, Handhelds & Accessories",
+                  "name": "computers-pda"
+                },
+                {
+                  "label": "Printers",
+                  "name": "computers-printer"
+                },
+                {
+                  "label": "Monitors",
+                  "name": "computers-monitor"
+                },
+                {
+                  "label": "Tablets",
+                  "name": "computers-tablet"
+                },
+                {
+                  "label": "Laptop & Netbook Computer Accessories",
+                  "name": "computers-laptopacc"
+                },
+                {
+                  "label": "Routers",
+                  "name": "computers-router"
+                },
+                {
+                  "label": "Desktop Computers",
+                  "name": "computers-desktop"
+                }
+              ],
+              "issphere": false,
+              "label": "Computers",
+              "name": "computers"
+            }
+          ],
+          "ver": 1
+        }
+    http_version: 
+  recorded_at: Thu, 15 Jan 2015 15:56:58 GMT
+recorded_with: VCR 2.9.3

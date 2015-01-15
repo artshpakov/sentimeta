@@ -1,7 +1,7 @@
 require 'json'
 require "colorize"
 require "rest_client"
-
+require "active_support/core_ext"
 
 module Sentimeta
   module RestClient
@@ -62,9 +62,6 @@ module Sentimeta
         Sentimeta.logger.fatal "Unknown method #{ method }(#{ method.class.name })" # TODO remove
       end
     end
-
-
-    private
 
     def generate_uri endpoint, options={}
       [].tap do |components|

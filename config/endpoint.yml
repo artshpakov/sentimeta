@@ -1,5 +1,5 @@
 production:
-  url: 'http://127.0.0.1/api/v1'
+  url: 'http://5.9.0.5/api/v1'
 
 staging:
   url: 'http://5.9.0.5/api/v1'

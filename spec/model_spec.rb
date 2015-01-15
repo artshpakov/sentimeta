@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Sentimeta::Model do
+describe Sentimeta::Model, :vcr do
 
   subject(:client) { Sentimeta::Client }
   subject { model = Sentimeta::Model; model.endpoint :spheres; model }
