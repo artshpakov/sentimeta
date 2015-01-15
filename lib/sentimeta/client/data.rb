@@ -16,21 +16,12 @@ module Sentimeta::Client::Data
   # Usage:
   #   search text: 'pitt' [, where: 'actors' ]
   def search options={}
+    result = get :search, options
     if options.has_key? :where
-      search_local(options[:where], options[:text])[options[:where]]
+      result[options[:where]]
     else
-      search_global options[:text]
+      result
     end
-  end
-
-  private
-
-  def search_global(text)
-    get :search, { text: text }
-  end
-
-  def search_local(where, text)
-    get :search, { where: where, text: text }
   end
 
 end
