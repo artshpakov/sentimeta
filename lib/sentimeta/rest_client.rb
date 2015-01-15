@@ -5,7 +5,7 @@ require "rest_client"
 
 module Sentimeta
   module RestClient
-    # require "sentimeta/error/unreachable"
+    require "sentimeta/error/unreachable"
     # require "sentimeta/error/record_not_found"
 
 
@@ -42,9 +42,10 @@ module Sentimeta
           headers: { 'X-SERVER-ACCESS-TOKEN' => 'c916b1e13b30764b39d47475e1cef4ee' }, # TODO define a property
           accept: :json
       rescue ::RestClient::Exception => e
-        # raise Sentimeta::Error::Unreachable(e.message, ApiResponse.new(e.response)) # TODO fix
         Sentimeta.logger.error "  #{ 'Sentimeta:'.colorize :red } #{ e.message } / #{ e.response }"
         return ApiResponse.new e.response
+      rescue
+        raise Unreachable.new e.message, ApiResponse.new(e.response)
       end
       ApiResponse.new response
     end
