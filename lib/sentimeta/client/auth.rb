@@ -2,9 +2,7 @@ module Sentimeta::Client::Auth
   extend self
   extend Sentimeta::RestClient
 
-  def namespace
-    :auth
-  end
+  self.namespace = :auth
 
   def user token
     get :users, id: token

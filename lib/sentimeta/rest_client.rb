@@ -8,6 +8,8 @@ module Sentimeta
     require "sentimeta/error/unreachable"
     # require "sentimeta/error/record_not_found"
 
+    attr_accessor :namespace
+    
 
     class ApiResponse
       attr_accessor :status, :body
@@ -66,7 +68,7 @@ module Sentimeta
       [].tap do |components|
         components << Sentimeta.endpoint
         components << (options.delete(:sphere) || Sentimeta.sphere) unless endpoint == :spheres
-        components << namespace if respond_to?(:namespace)
+        components << namespace unless namespace.nil?
         components << endpoint
         components << options.delete(:filter) if endpoint == :attributes  # TODO remove
         components << options.delete(:provider) if endpoint == :prices    # TODO remove
