@@ -23,7 +23,9 @@ module Sentimeta
         status < 300
       end
 
-      delegate :[], to: :body
+      def [] key
+        body[key] if body.respond_to?(:[])
+      end
     end
 
 
