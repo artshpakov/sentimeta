@@ -1,7 +1,6 @@
 require 'json'
 require "colorize"
 require "rest_client"
-require "active_support/core_ext"
 
 module Sentimeta
   module RestClient

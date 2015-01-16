@@ -13,5 +13,6 @@ require "sentimeta/client"
 require "sentimeta/observers"
 require "sentimeta/model"
 require "sentimeta/logger"
+require "sentimeta/support"
 require "sentimeta/railtie" if defined? Rails
 require "sentimeta/init"
