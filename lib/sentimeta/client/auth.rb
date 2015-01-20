@@ -27,4 +27,8 @@ module Sentimeta::Client::Auth
   def oauth attrs
     post :oauth, identity: attrs
   end
+
+  def signout token
+    delete :sessions, id: token
+  end
 end
