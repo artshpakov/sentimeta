@@ -15,7 +15,7 @@ module Sentimeta
 
       def initialize response
         self.status = response.code
-        self.body   = JSON.parse(response)
+        self.body   = JSON.parse(response) rescue nil
       end
 
       def ok?
