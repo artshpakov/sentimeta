@@ -1,6 +1,9 @@
 module Sentimeta::Client::Data
   extend self
   extend Sentimeta::RestClient
+
+  def sphere() Sentimeta.sphere end
+
   
   %i(criteria spheres objects catalog).each do |endpoint|
     define_method endpoint do |options={}|

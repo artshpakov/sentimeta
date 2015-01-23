@@ -65,8 +65,8 @@ module Sentimeta
     def generate_uri endpoint, options={}
       [].tap do |components|
         components << Sentimeta.endpoint
-        components << (options.delete(:sphere) || Sentimeta.sphere) unless endpoint == :spheres
-        components << namespace unless namespace.nil?
+        components << (options.delete(:sphere) || try(:sphere)) unless endpoint == :spheres
+        components << namespace unless namespace.nil? 
         components << endpoint
         components << options.delete(:filter) if endpoint == :attributes  # TODO remove
         components << options.delete(:provider) if endpoint == :prices    # TODO remove
