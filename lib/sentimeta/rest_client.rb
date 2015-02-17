@@ -35,7 +35,7 @@ module Sentimeta
       url = generate_uri path, params
       url = "#{ url }?p=#{ params.to_json }" if method.to_sym == :get && params.present?
       Sentimeta.logger.debug "  #{ 'Sentimeta:'.colorize :green } #{ method.upcase } #{ url } #{ params.to_json if params.present? && method.to_sym != :get }"
-      Observers.each { |observer| observer.notify "fetch", "#{ method.upcase } #{ url } #{ params.to_json if params.present? }" }
+      Observers.each { |observer| observer.notify("fetch", method: method, url: url, params: params) }
 
       response = begin
         ::RestClient::Request.execute \
