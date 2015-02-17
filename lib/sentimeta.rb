@@ -8,6 +8,7 @@ end
 require "sentimeta/rest_client"
 require "sentimeta/client/data"
 require "sentimeta/client/prices"
+require "sentimeta/client/info"
 require "sentimeta/client/auth"
 require "sentimeta/client"
 require "sentimeta/observers"
