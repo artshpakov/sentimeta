@@ -15,6 +15,10 @@ module Sentimeta::Client::Data
     get(:attributes, options)['values']
   end
 
+  def medal id, options
+    get(:objects, options.merge(id: "#{ id }/medal"))['medal']
+  end
+
   ##
   # Usage:
   #   search text: 'pitt' [, where: 'actors' ]
