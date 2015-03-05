@@ -16,7 +16,11 @@ module Sentimeta::Client::Data
   end
 
   def medal id, options
-    get(:objects, options.merge(id: "#{ id }/medal"))['medal']
+    response = get(:objects, options.merge(id: "#{ id }/medal"))
+    if response.ok? && response.body['medal'].present? && response.body['object'].present?
+      response.body = response.body.slice 'medal', 'object'
+      response
+    end
   end
 
   ##
