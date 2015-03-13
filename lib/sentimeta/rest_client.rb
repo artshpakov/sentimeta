@@ -30,6 +30,7 @@ module Sentimeta
 
     def fetch path, params={}
       method = params.delete(:method) || :get
+      token = params.delete(:token)
       params = params.keep_if { |key, value| !!value }
 
       url = generate_uri path, params
@@ -37,12 +38,15 @@ module Sentimeta
       Sentimeta.logger.debug "  #{ 'Sentimeta:'.colorize :green } #{ method.upcase } #{ url } #{ params.to_json if params.present? && method.to_sym != :get }"
       Observers.each { |observer| observer.notify("fetch", method: method, url: url, params: params) }
 
+      headers = { 'X-SERVER-ACCESS-TOKEN' => 'c916b1e13b30764b39d47475e1cef4ee' }
+      headers['x-token'] = token if token
+
       response = begin
         ::RestClient::Request.execute \
           method: method,
           url: URI::encode(url),
           payload: params,
-          headers: { 'X-SERVER-ACCESS-TOKEN' => 'c916b1e13b30764b39d47475e1cef4ee' }, # TODO define a property
+          headers: headers, # TODO define a property
           accept: :json
       rescue ::RestClient::Exception => e
         Sentimeta.logger.error "  #{ 'Sentimeta:'.colorize :red } #{ e.message } / #{ e.response }"
