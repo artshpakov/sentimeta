@@ -47,7 +47,7 @@ module Sentimeta
           method: method,
           url: URI::encode(url),
           payload: params,
-          headers: headers, # TODO define a property
+          headers: headers,
           accept: :json
       rescue ::RestClient::Exception => e
         Sentimeta.logger.error "  #{ 'Sentimeta:'.colorize :red } #{ e.message } / #{ e.response }"
