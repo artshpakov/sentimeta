@@ -4,7 +4,7 @@ require 'yaml'
 module Sentimeta
   class << self
 
-    attr_accessor :env, :sphere
+    attr_accessor :env, :server_token, :sphere
     attr_writer :endpoint, :lang, :logger
 
     def endpoint

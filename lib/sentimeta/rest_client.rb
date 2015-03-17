@@ -29,17 +29,18 @@ module Sentimeta
 
 
     def fetch path, params={}
-      method = params.delete(:method) || :get
-      token = params.delete(:token)
-      params = params.keep_if { |key, value| !!value }
+      method  = params.delete(:method) || :get
+      token   = params.delete(:token)
+      params  = params.keep_if { |key, value| !!value }
 
       url = generate_uri path, params
       url = "#{ url }?p=#{ params.to_json }" if method.to_sym == :get && params.present?
       Sentimeta.logger.debug "  #{ 'Sentimeta:'.colorize :green } #{ method.upcase } #{ url } #{ params.to_json if params.present? && method.to_sym != :get }"
       Observers.each { |observer| observer.notify("fetch", method: method, url: url, params: params) }
 
-      headers = { 'X-SERVER-ACCESS-TOKEN' => 'c916b1e13b30764b39d47475e1cef4ee' }
-      headers['x-token'] = token if token
+      headers = {}
+      headers['X-SERVER-ACCESS-TOKEN'] = Sentimeta.server_token if Sentimeta.server_token
+      headers['X-TOKEN'] = token if token
 
       response = begin
         ::RestClient::Request.execute \
