@@ -5,6 +5,7 @@ require 'sentimeta'
 require 'yaml'
 
 Sentimeta.sphere = :hotels
+Sentimeta.env = :test
 
 require 'webmock/rspec'
 require "vcr"

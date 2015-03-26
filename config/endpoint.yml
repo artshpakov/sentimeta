@@ -3,3 +3,6 @@ production:
 
 staging:
   url: 'http://5.9.0.5/api/v1'
+
+test:
+  url: 'http://5.9.0.5/api/v1'
